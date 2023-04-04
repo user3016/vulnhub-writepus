@@ -85,18 +85,22 @@ But first, we need to cd into tmp.
 We also need to modify the path variable to be able to execute our cat command.
 
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic14.png)
+
 Executing that, we became mike.
 
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic15.png)
+
 In mike's home directory, we found an executable file called **msg2root**.
 As expected, this file is vulnerable to command injection.
 Let's use that to get a root shell.
 Trying to open a bash shell won't work.
 
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic16.png)
+
 So let's try sh instead.
 And it worked.
 ![root](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic17.png)
+
 We are now root.
 **Note: you need to remove the cat command we created earlier to be able to use the normal cat command and view the flag.**
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic18.png)
