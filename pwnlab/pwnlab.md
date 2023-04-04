@@ -77,6 +77,7 @@ So, I switched user to kane.
 In the home folder of kane, I found this executable file.
 
 ![msgmike](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic13.png)
+
 Let's perform strings on it.
 We can see that it uses the command cat.
 We can make the cat command execute a bash shell.
