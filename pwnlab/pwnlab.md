@@ -99,8 +99,10 @@ Trying to open a bash shell won't work.
 
 So let's try sh instead.
 And it worked.
+
 ![root](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic17.png)
 
 We are now root.
 **Note: you need to remove the cat command we created earlier to be able to use the normal cat command and view the flag.**
+
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic18.png)
