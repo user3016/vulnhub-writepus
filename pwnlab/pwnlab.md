@@ -53,7 +53,7 @@ GIF header: **GIF87a**
 
 ![gif header](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic8.png)
 
-If we use the command **file** on the shell we can see it's shown as png.
+If we use the command **file** on the shell we can see it's shown as a gif file.
 
 ![file](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic9.png)
 
