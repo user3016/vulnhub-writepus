@@ -26,8 +26,10 @@ Let's navigate to **robots.txt**
 
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/mrRobot/pics/pic1.png)
 
-We can see that we have two files.
+We can see that we have two files. 
+
 One of them is the first key.
+
 Let's download them to our machine.
 
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/mrRobot/pics/pic2.png)
