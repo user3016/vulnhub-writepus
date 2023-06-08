@@ -23,6 +23,7 @@ Nmap done: 1 IP address (1 host up) scanned in 10.25 seconds
 ```
 Browsing the machine at port 80, we have a terminal like page with commands to use.
 Let's navigate to **robots.txt**
+
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/mrRobot/pics/pic1.png)
 
 We can see that we have two files.
