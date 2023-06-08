@@ -71,7 +71,7 @@ I'll use wpscan for the brute force but you can use any tool you like.
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/mrRobot/pics/pic9.png)
 
 Great! We found the password.
-Now, we can go back the login page and login as Elliot.
+Now, we can go back to the login page and login as Elliot.
 
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/mrRobot/pics/pic10.png)
 
