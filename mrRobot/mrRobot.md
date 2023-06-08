@@ -88,6 +88,7 @@ We got a shell!
 You can stable your shell with those two commands.
 
 ```python -c 'import pty;pty.spawn("/bin/bash")'```
+
 ```export TERM=xterm```
 
 Let's check the home dirctory.
