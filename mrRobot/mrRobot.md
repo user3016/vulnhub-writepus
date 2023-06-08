@@ -81,6 +81,7 @@ Go to Appearance -> Editor and add your php shell code to the 404.php file.
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/mrRobot/pics/pic11.png)
 
 Now, set up a netcat lisnter and go to http://192.168.56.102/404.php to execute the shell.
+
 We got a shell!
 
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/mrRobot/pics/pic12.png)
@@ -96,19 +97,25 @@ Let's check the home dirctory.
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/mrRobot/pics/pic13.png)
 
 We found the second key but we can't read it.
+
 We also found a file that contains the password for the user **robot**.
+
 Let's decode the password.
 
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/mrRobot/pics/pic14.png)
 
 Now, let's switch user to **robot**.
+
 We can now read the second key.
 
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/mrRobot/pics/pic15.png)
 
 Now, let's enumerate the machine more and try to get root.
+
 I'll use the linpeas script.
+
 I'll transfer it to the target machine using python http server.
+
 But first you need to navigate to the **tmp** directory in order to run the script.
 
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/mrRobot/pics/pic16.png)
@@ -122,7 +129,9 @@ We can go to gtfobins and search for nmap.
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/mrRobot/pics/pic18.png)
 
 Let's try option (b)
+
 We have successfully become root.
+
 Now, we can view the third key.
 
 ![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/mrRobot/pics/pic19.png)
