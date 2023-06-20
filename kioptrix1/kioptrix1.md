@@ -85,24 +85,24 @@ Now, Set the rhosts to the machine's IP.
 
 Now, type ```run```
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/kioptrix1/pic2.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/kioptrix1/pics/pic2.png)
 
 Now, that we have the smb version, let's search for an exploit.
 
 Let's use this module: **exploit/linux/samba/trans2open** and set the options.
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/kioptrix1/pic3.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/kioptrix1/pics/pic3.png)
 
 We also need to replace the default payload with 
 
 Now, let's run it.
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/kioptrix1/pic4.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/kioptrix1/pics/pic4.png)
 
 Let's interact with any of the opened sessions.
 
 ```sessions -i 4```
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/kioptrix1/pic5.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/kioptrix1/pics/pic5.png)
 
 Yes! we are now root.
