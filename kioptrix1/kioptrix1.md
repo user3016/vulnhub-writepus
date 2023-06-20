@@ -3,7 +3,7 @@ Today we'll be looking at the kioptrix 1 machine on vulnhub.
 
 You can download the machine [here](https://www.vulnhub.com/entry/kioptrix-level-1-1,22/).
 
-##Nmap
+<h2>Nmap</h2>
 
 ```
 ┌──(root㉿kali)-[~]
@@ -69,7 +69,7 @@ HOP RTT     ADDRESS
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 28.75 seconds
 ```
-##smb enumeration
+<h2>smb enumeration</h2>
 
 We can see that the machine is running smb.
 
@@ -85,24 +85,24 @@ Now, Set the rhosts to the machine's IP.
 
 Now, type ```run```
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/kioptrix1/pic2.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/kioptrix1/pic2.png)
 
 Now, that we have the smb version, let's search for an exploit.
 
 Let's use this module: **exploit/linux/samba/trans2open** and set the options.
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/kioptrix1/pic3.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/kioptrix1/pic3.png)
 
 We also need to replace the default payload with 
 
 Now, let's run it.
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/kioptrix1/pic4.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/kioptrix1/pic4.png)
 
 Let's interact with any of the opened sessions.
 
 ```sessions -i 4```
 
-![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/pwnlab/kioptrix1/pic5.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/main/kioptrix1/pic5.png)
 
 Yes! we are now root.
