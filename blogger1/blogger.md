@@ -1,9 +1,11 @@
 <h1>BLOGGER: 1</h1>
 
 Today, we'll be looking at the Toppo machine on vulnhub.
+
 You can download the machine [here](https://www.vulnhub.com/entry/blogger-1,675/).
 
 <h2>Nmap</h2>
+
 ```
 ┌──(root㉿kali)-[~]
 └─# nmap -sS -A 192.168.56.104 
