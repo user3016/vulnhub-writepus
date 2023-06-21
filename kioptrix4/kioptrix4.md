@@ -1,8 +1,8 @@
 ﻿#KIOPTRIX: LEVEL 1.3 (#4)
 
-**Today, we'll be looking at the Kioptrix level 4 machine on vulnhub.
+Today, we'll be looking at the Kioptrix level 4 machine on vulnhub.
 
-You can download the machine [here](https://www.vulnhub.com/entry/kioptrix-level-13-4,25/).**
+You can download the machine [here](https://www.vulnhub.com/entry/kioptrix-level-13-4,25/).
 
 Let's scan the machine with nmap.
 
