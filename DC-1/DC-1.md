@@ -1,6 +1,6 @@
 <h1>DC: 1</h1>
 
-**Today, we'll be looking at the DC-1 machine on vulnhub.
+Today, we'll be looking at the DC-1 machine on vulnhub.
 
 You can download the machine [here](https://www.vulnhub.com/entry/dc-1,292/).
 
