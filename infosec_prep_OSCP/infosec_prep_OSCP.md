@@ -3,8 +3,7 @@
 Today, we'll be looking at the info sec prep machine on vulnhub.
 
 You can download the machine [here](https://www.vulnhub.com/entry/infosec-prep-oscp,508/).
-
-<h2>Nmap</h2>
+let's use nmap to scan the machine.
 ```
 ┌──(root㉿kali)-[~]
 └─# nmap -sS -A -p- 192.168.88.137
