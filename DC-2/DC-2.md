@@ -93,7 +93,7 @@ Looks like we are in a restriced shell: **rbash**.
 
 We can use the command ``compgen -c`` to view available commands.
 
-Great! we can fun **vi**.
+Great! we can run **vi**.
 
 ![](pics/pic8.png)
 
