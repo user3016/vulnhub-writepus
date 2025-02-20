@@ -48,10 +48,10 @@ Nmap done: 1 IP address (1 host up) scanned in 21.21 seconds
 From the Nmap scan, we can see that the target machine is running http and ssh.
 
 I tried to access the machine's http server but I got this message.
-![](pics/pic1.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/refs/heads/main/me-and-my-girlfriend/pics/pic1.png)
 
 I viewed the page source and got this:
-![](pics/pic2.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/refs/heads/main/me-and-my-girlfriend/pics/pic2.png)
 
 This is a hint to use the X-Forwarded-For header to be able to access the page.
 
@@ -60,37 +60,37 @@ You can read about this header [here](https://developer.mozilla.org/en-US/docs/W
 I intercepted the request with BurpSuite proxy and added this header: 
 ```X-Forwarded-For: localhost```
  And it worked!
-![](pics/pic3.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/refs/heads/main/me-and-my-girlfriend/pics/pic3.png)
 
 I then configured burp to added this header automatically to all requests.
 You can do it by following these steps:
 Proxy => Proxy Settings => search for "match and replace"
 Then add the header as shown in the picture.
-![](pics/pic4.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/refs/heads/main/me-and-my-girlfriend/pics/pic4.png)
 
 
 I then got this page.
 
-![](pics/pic5.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/refs/heads/main/me-and-my-girlfriend/pics/pic5.png)
 
 I registered a new user and then logged in.
-![](pics/pic6.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/refs/heads/main/me-and-my-girlfriend/pics/pic6.png)
 
 I then visited the different pages here and noticed that the profile page identifies users by the parameter 'id' in the request.
 I tried changing the parameter and I got access to other users creds.
 
 I tried logging with these creds to the ssh server and I got in as the Alice.
-![](pics/pic7.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/refs/heads/main/me-and-my-girlfriend/pics/pic7.png)
 
 I then found the first flag and a note in a hidden directory inside alice's home directory.
-![](pics/pic8.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/refs/heads/main/me-and-my-girlfriend/pics/pic8.png)
 
 I then ran the command ```sudo -l``` to see if alice can run any commands with sudo.
-![](pics/pic9.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/refs/heads/main/me-and-my-girlfriend/pics/pic9.png)
 
 Great!
 We can use php to run a bash shell as root.
 I then used the system function to run ```/bin/bash``` and get a shell as root.
-![](pics/pic10.png)
+![](https://raw.githubusercontent.com/user3016/vulnhub-writepus/refs/heads/main/me-and-my-girlfriend/pics/pic10.png)
 
 It worked and I got the root flag.
