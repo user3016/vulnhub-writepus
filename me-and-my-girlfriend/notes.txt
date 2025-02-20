@@ -1,0 +1,14 @@
+alice:4lic3
+root : /usr/bin/php
+
+eweuhtandingan:skuyatuh
+
+aingmaung:qwerty!!!
+
+sundatea:indONEsia
+
+flag1: gfriEND{2f5f21b2af1b8c3e227bcf35544f8f09}
+
+flag2: gfriEND{56fbeef560930e77ff984b644fde66e7}
+
+
